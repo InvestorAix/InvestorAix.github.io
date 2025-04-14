@@ -1,0 +1,273 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --text-color: #1f2937;
+    --background-color: #ffffff;
+    --card-background: #f3f4f6;
+    --border-color: #e5e7eb;
+    --hover-color: #3b82f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+header {
+    background-color: var(--background-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.docs-grid, .concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.doc-card, .concept-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doc-card:hover, .concept-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.doc-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.concept-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.endpoint-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.endpoint-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.endpoint-card h4 {
+    color: var(--text-color);
+    margin: 1rem 0 0.5rem;
+    font-size: 1rem;
+}
+
+.endpoint-card pre {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 0.5rem 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
+
+.endpoint-card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.endpoint-card li {
+    margin-bottom: 0.5rem;
+}
+
+.endpoint-card code {
+    background: #f5f5f5;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
+
+.error-codes {
+    margin-top: 2rem;
+}
+
+.error-codes table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.error-codes th,
+.error-codes td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.error-codes th {
+    background: var(--card-bg);
+    font-weight: 600;
+}
+
+.error-codes tr:hover {
+    background: var(--card-bg);
+}
+
+pre {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9rem;
+}
+
+.tutorial-card {
+    background-color: var(--background-color);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.tutorial-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.tutorial-card h3 {
+    color: var(--secondary-color);
+    margin: 1.5rem 0 1rem;
+}
+
+.tutorial-card ol,
+.tutorial-card ul {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.tutorial-card li {
+    margin-bottom: 0.5rem;
+}
+
+.doc-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.doc-link:hover {
+    background-color: var(--hover-color);
+}
+
+footer {
+    background-color: var(--card-background);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .docs-grid, .concepts-grid {
+        grid-template-columns: 1fr;
+    }
+} 

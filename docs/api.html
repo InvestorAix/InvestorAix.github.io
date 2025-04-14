@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação da API - InvestorAIx</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>InvestorAIx</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="docs.html">Documentação</a></li>
+                <li><a href="api.html" class="active">API</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Documentação da API</h1>
+        
+        <section class="authentication">
+            <h2>Autenticação</h2>
+            <p>Todas as requisições à API devem incluir um token de autenticação no cabeçalho:</p>
+            <pre>Authorization: Bearer seu_token_aqui</pre>
+        </section>
+
+        <section class="endpoints">
+            <h2>Endpoints</h2>
+
+            <div class="endpoint-card">
+                <h3>GET /api/v1/portfolio</h3>
+                <p>Retorna o portfólio do usuário.</p>
+                <h4>Resposta</h4>
+                <pre>{
+    "success": true,
+    "data": {
+        "total_value": 150000.00,
+        "assets": [
+            {
+                "symbol": "AAPL",
+                "quantity": 100,
+                "current_price": 150.00,
+                "total_value": 15000.00
+            }
+        ]
+    }
+}</pre>
+            </div>
+
+            <div class="endpoint-card">
+                <h3>POST /api/v1/analysis</h3>
+                <p>Realiza análise de um ativo específico.</p>
+                <h4>Request</h4>
+                <pre>{
+    "symbol": "AAPL",
+    "timeframe": "1d",
+    "indicators": ["rsi", "macd"]
+}</pre>
+                <h4>Resposta</h4>
+                <pre>{
+    "success": true,
+    "data": {
+        "symbol": "AAPL",
+        "analysis": {
+            "rsi": 65.4,
+            "macd": {
+                "value": 2.5,
+                "signal": 1.8
+            },
+            "recommendation": "HOLD"
+        }
+    }
+}</pre>
+            </div>
+
+            <div class="endpoint-card">
+                <h3>GET /api/v1/market-data</h3>
+                <p>Retorna dados de mercado em tempo real.</p>
+                <h4>Parâmetros</h4>
+                <ul>
+                    <li><code>symbol</code> - Símbolo do ativo (obrigatório)</li>
+                    <li><code>interval</code> - Intervalo de tempo (1m, 5m, 15m, 1h, 1d)</li>
+                    <li><code>limit</code> - Número de registros (máximo 1000)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="error-codes">
+            <h2>Códigos de Erro</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>400</td>
+                        <td>Requisição inválida</td>
+                    </tr>
+                    <tr>
+                        <td>401</td>
+                        <td>Não autorizado</td>
+                    </tr>
+                    <tr>
+                        <td>403</td>
+                        <td>Acesso proibido</td>
+                    </tr>
+                    <tr>
+                        <td>404</td>
+                        <td>Recurso não encontrado</td>
+                    </tr>
+                    <tr>
+                        <td>429</td>
+                        <td>Muitas requisições</td>
+                    </tr>
+                    <tr>
+                        <td>500</td>
+                        <td>Erro interno do servidor</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 InvestorAIx. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html> 
